@@ -12,8 +12,8 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "dev": "nodemon ./app/index.js",
+    "dev": "nodemon index.js",
 		"build": "yarn install --ignore-engines",
-		"start": "node ./app/index.js"
+		"start": "node index.js"
   }
 }
