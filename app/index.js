@@ -8,9 +8,13 @@ dotenv.config();
 mongoose.connect(process.env.ATLAS_URI);
 const app = express();
 
-app.listen(process.env.API_PORT);
+app.listen(process.env.PORT);
 
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    return res.json({ message: process.env.ATLAS_URI });
+});
 
 app.post('/create', async (req, res) => {
     const data = await rfid.create(req.body);
@@ -31,4 +35,4 @@ app.get('/check/:code', async (req, res) => {
     }
 });
 
-console.log(`🚀✨ App is running at port ${process.env.API_PORT}`)
+console.log(`🚀✨ App is running at port ${process.env.PORT}`)
